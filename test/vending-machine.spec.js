@@ -37,4 +37,15 @@ describe('Vending Machine', () => {
 
         should.equal(value, 10);
     });
+
+    it('should accept quarters', () => {
+        const vendingMachine = VendingMachine();
+
+        vendingMachine.insertCoin({
+            type: "quarter"
+        });
+        const value = vendingMachine.getDisplayed();
+
+        should.equal(value, 25);
+    });
 });
