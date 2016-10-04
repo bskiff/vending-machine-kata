@@ -3,12 +3,12 @@ const should = require('should');
 
 describe('Vending Machine', () => {
     var vendingMachine;
-    
+
     beforeEach(() => {
         vendingMachine = VendingMachine();
     });
 
-    describe(`with 'Make Change' feature`, () => {
+    describe(`with 'Accept Change' feature`, () => {
         it('should display INSERT COIN when no coins have been inserted', () => {
             const value = vendingMachine.getDisplayed();
 
@@ -87,6 +87,15 @@ describe('Vending Machine', () => {
             const returnedCoins = vendingMachine.getReturnedCoins();
 
             should.deepEqual(returnedCoins, expectedCoins);
+        });
+    });
+
+    describe(`with 'Select Product' feature`, () => {
+        it('should display price of cola', () => {
+            vendingMachine.pressColaButton();
+            const displayed = vendingMachine.getDisplayed();
+
+            displayed.should.equal('$1.00');
         });
     });
 });
