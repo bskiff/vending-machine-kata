@@ -95,21 +95,21 @@ describe('Vending Machine', () => {
             vendingMachine.pressColaButton();
             const displayed = vendingMachine.getDisplayed();
 
-            displayed.should.equal('$1.00');
+            displayed.should.equal('PRICE $1.00');
         });
 
         it('should display price of chips', () => {
             vendingMachine.pressChipsButton();
             const displayed = vendingMachine.getDisplayed();
 
-            displayed.should.equal('$0.50');
+            displayed.should.equal('PRICE $0.50');
         });
 
         it('should display price of candy', () => {
             vendingMachine.pressCandyButton();
             const displayed = vendingMachine.getDisplayed();
 
-            displayed.should.equal('$0.65');
+            displayed.should.equal('PRICE $0.65');
         });
     });
 });
