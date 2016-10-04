@@ -15,4 +15,15 @@ describe('Vending Machine', () => {
 
         should.equal(value, 'INSERT COIN');
     });
+
+    it('should accept nickels', () => {
+        const vendingMachine = VendingMachine();
+
+        vendingMachine.insertCoin({
+           type: "nickel"
+        });
+        const value = vendingMachine.getDisplayed();
+
+        should.equal(value, 5);
+    });
 });
