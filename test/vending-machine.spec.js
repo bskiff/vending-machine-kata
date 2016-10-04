@@ -97,5 +97,12 @@ describe('Vending Machine', () => {
 
             displayed.should.equal('$1.00');
         });
+
+        it('should display price of chips', () => {
+            vendingMachine.pressChipsButton();
+            const displayed = vendingMachine.getDisplayed();
+
+            displayed.should.equal('$0.50');
+        });
     });
 });
