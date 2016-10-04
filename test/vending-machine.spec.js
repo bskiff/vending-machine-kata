@@ -48,4 +48,23 @@ describe('Vending Machine', () => {
 
         should.equal(value, 25);
     });
+
+    it('should display aggregate value of added coins', () => {
+        const vendingMachine = VendingMachine();
+
+        vendingMachine.insertCoin({
+            type: "nickel"
+        });
+        should.equal(vendingMachine.getDisplayed(), 5);
+
+        vendingMachine.insertCoin({
+            type: "dime"
+        });
+        should.equal(vendingMachine.getDisplayed(), 15);
+        
+        vendingMachine.insertCoin({
+            type: "quarter"
+        });
+        should.equal(vendingMachine.getDisplayed(), 40);
+    });
 });
