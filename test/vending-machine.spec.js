@@ -56,4 +56,16 @@ describe('Vending Machine', () => {
         });
         should.equal(vendingMachine.getDisplayed(), 40);
     });
+
+    it('should place rejected coins in coin return', () => {
+        const insertedCoin = {
+            type: "chocolate"
+        };
+        vendingMachine.insertCoin(insertedCoin);
+
+        should.equal(vendingMachine.getDisplayed(), 'INSERT COIN');
+        const returnedCoins = vendingMachine.getReturnedCoins();
+
+        should.deepEqual(returnedCoins, [insertedCoin]);
+    });
 });
