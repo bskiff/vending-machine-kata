@@ -111,5 +111,11 @@ describe('Vending Machine', () => {
 
             displayed.should.equal('PRICE $0.65');
         });
+
+        it('should have no items dispensed at start', () => {
+            const dispensed = vendingMachine.getDispensed();
+
+            dispensed.should.be.empty();
+        });
     });
 });
