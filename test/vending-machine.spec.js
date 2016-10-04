@@ -26,4 +26,15 @@ describe('Vending Machine', () => {
 
         should.equal(value, 5);
     });
+
+    it('should accept dimes', () => {
+        const vendingMachine = VendingMachine();
+
+        vendingMachine.insertCoin({
+            type: "dime"
+        });
+        const value = vendingMachine.getDisplayed();
+
+        should.equal(value, 10);
+    });
 });
