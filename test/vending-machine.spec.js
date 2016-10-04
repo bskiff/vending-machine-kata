@@ -68,4 +68,22 @@ describe('Vending Machine', () => {
 
         should.deepEqual(returnedCoins, [insertedCoin]);
     });
+
+    it('should have no returned coins at start', () => {
+        const returnedCoins = vendingMachine.getReturnedCoins();
+
+        returnedCoins.should.be.empty();
+    });
+
+    it('should return all rejected coins', () => {
+        const expectedCoins = [
+            { type: "chocolate"},
+            { type: "Canadian coin, eh"}
+        ];
+        vendingMachine.insertCoin(expectedCoins[0]);
+        vendingMachine.insertCoin(expectedCoins[1]);
+        const returnedCoins = vendingMachine.getReturnedCoins();
+
+        should.deepEqual(returnedCoins, expectedCoins);
+    });
 });
