@@ -104,5 +104,12 @@ describe('Vending Machine', () => {
 
             displayed.should.equal('$0.50');
         });
+
+        it('should display price of candy', () => {
+            vendingMachine.pressCandyButton();
+            const displayed = vendingMachine.getDisplayed();
+
+            displayed.should.equal('$0.65');
+        });
     });
 });
