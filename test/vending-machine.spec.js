@@ -2,23 +2,18 @@ const VendingMachine = require('../lib/vending-machine');
 const should = require('should');
 
 describe('Vending Machine', () => {
-    it('should return an object', () => {
-        const vendingMachine = VendingMachine();
-
-        should(vendingMachine).be.an.Object();
+    var vendingMachine;
+    beforeEach(() => {
+        vendingMachine = VendingMachine();
     });
 
     it('should display INSERT COIN when no coins have been inserted', () => {
-        const vendingMachine = VendingMachine();
-
         const value = vendingMachine.getDisplayed();
 
         should.equal(value, 'INSERT COIN');
     });
 
     it('should accept nickels', () => {
-        const vendingMachine = VendingMachine();
-
         vendingMachine.insertCoin({
            type: "nickel"
         });
@@ -28,8 +23,6 @@ describe('Vending Machine', () => {
     });
 
     it('should accept dimes', () => {
-        const vendingMachine = VendingMachine();
-
         vendingMachine.insertCoin({
             type: "dime"
         });
@@ -39,8 +32,6 @@ describe('Vending Machine', () => {
     });
 
     it('should accept quarters', () => {
-        const vendingMachine = VendingMachine();
-
         vendingMachine.insertCoin({
             type: "quarter"
         });
@@ -50,8 +41,6 @@ describe('Vending Machine', () => {
     });
 
     it('should display aggregate value of added coins', () => {
-        const vendingMachine = VendingMachine();
-
         vendingMachine.insertCoin({
             type: "nickel"
         });
@@ -61,7 +50,7 @@ describe('Vending Machine', () => {
             type: "dime"
         });
         should.equal(vendingMachine.getDisplayed(), 15);
-        
+
         vendingMachine.insertCoin({
             type: "quarter"
         });
